@@ -1,0 +1,3 @@
+# Global-Documentation
+
+Personal documentation on tools, concept, practice....

@@ -1,0 +1,3 @@
+# Home
+
+Personal documentation for all sort of thing, concept, tools, best practice, clean code, ...

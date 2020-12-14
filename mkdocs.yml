@@ -1,0 +1,8 @@
+site_name: Global Documentation
+nav:
+  - 'index.md'
+  - 'DevOps':
+      - Docker: docker.md
+  - 'Documentation':
+      - How to add documentation: how-to-add-documentation.md
+theme: readthedocs
