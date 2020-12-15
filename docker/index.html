@@ -62,6 +62,14 @@
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#what-is-docker">What is docker ?</a>
     </li>
+    <li class="toctree-l2"><a class="reference internal" href="#advantages-of-docker">Advantages of docker</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#usefull-command">Usefull command</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#what-is-a-dockerfile">What is a Dockerfile ?</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#simple-java-dockerfile">Simple Java Dockerfile</a>
+    </li>
     </ul>
                     </li>
                 </ul>
@@ -108,7 +116,51 @@
               
                 <h1 id="docker">Docker</h1>
 <h2 id="what-is-docker">What is docker ?</h2>
-<p>Documentation in progress...</p>
+<p>Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly.</p>
+<p>With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker’s methodologies for shipping, testing, and deploying code quickly, you can significantly reduce the delay between writing code and running it in production.</p>
+<h2 id="advantages-of-docker">Advantages of docker</h2>
+<ul>
+<li>Package and run an application in a loosely isolated environment called a container</li>
+<li>Containers are lightweight because they don’t need the extra load of a hypervisor, but run directly within the host machine’s kernel</li>
+<li>Isolation and security allow you to run many containers simultaneously on a given host</li>
+<li>Can run Docker containers within host machines that are actually virtual machines</li>
+<li>Easy and rapid app deployment to any cloud</li>
+<li>Scale app by multiplying the number of containers</li>
+</ul>
+<h2 id="usefull-command">Usefull command</h2>
+<p>Show all running containers</p>
+<pre><code class="language-bash">docker ps
+</code></pre>
+<p>Show all containers</p>
+<pre><code class="language-bash">docker ps -a
+</code></pre>
+<p>Show all images</p>
+<pre><code class="language-bash">docker image ls
+</code></pre>
+<p>Remove image</p>
+<pre><code class="language-bash">docker image rm IMAGE_NAME
+</code></pre>
+<p>Run a docker container from an image</p>
+<ul>
+<li>-d -&gt; Dispatch, run in background</li>
+<li>-p -&gt; Publish, map port 80 in the container to port 8080 on the docker host</li>
+</ul>
+<pre><code class="language-bash">docker run -d -p 8080:80 IMAGE:TAG
+</code></pre>
+<p>Build a docker image from a Dockerfile</p>
+<ul>
+<li>-t, Name and optionally a tag in the ‘name:tag’ format</li>
+</ul>
+<pre><code class="language-bash">docker build -t NAME:TAG .
+</code></pre>
+<h2 id="what-is-a-dockerfile">What is a Dockerfile ?</h2>
+<p>Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using <code>docker build</code> users can create an automated build that executes several command-line instructions in succession.</p>
+<h2 id="simple-java-dockerfile">Simple Java Dockerfile</h2>
+<pre><code class="language-docker">FROM openjdk:15
+ARG JAR_FILE=target/*.jar
+COPY ${JAR_FILE} app.jar
+ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot;,&quot;/app.jar&quot;]
+</code></pre>
               
             </div>
           </div>
