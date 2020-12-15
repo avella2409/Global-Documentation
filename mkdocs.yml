@@ -1,6 +1,8 @@
 site_name: Global Documentation
 nav:
   - 'index.md'
+  - 'Zero downtime deployment':
+      - Blue Green deployment: 'blue-green-deployment.md'
   - 'DevOps':
       - Docker: docker.md
   - 'Documentation':
