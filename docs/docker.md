@@ -58,6 +58,12 @@ Build a docker image from a Dockerfile
 docker build -t NAME:TAG .
 ```
 
+Login to the interactive shell of a container
+
+```bash
+docker exec -it <container_id_or_name> bash
+```
+
 ## What is a Dockerfile ?
 
 Docker can build images automatically by reading the instructions from a Dockerfile. A Dockerfile is a text document that contains all the commands a user could call on the command line to assemble an image. Using `docker build` users can create an automated build that executes several command-line instructions in succession.

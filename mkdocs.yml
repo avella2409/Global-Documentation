@@ -5,6 +5,8 @@ nav:
       - Blue Green deployment: 'blue-green-deployment.md'
   - 'DevOps':
       - Docker: docker.md
+  - 'NoSQL':
+    - MongoDB : mongodb.md
   - 'Documentation':
       - How to add documentation: how-to-add-documentation.md
 theme: readthedocs
