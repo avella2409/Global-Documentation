@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Blue Green deployment - Global Documentation</title>
+  <title>MongoDB - Global Documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Blue Green deployment";
-    var mkdocs_page_input_path = "blue-green-deployment.md";
+    var mkdocs_page_name = "MongoDB";
+    var mkdocs_page_input_path = "mongodb.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -52,20 +52,8 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Zero downtime deployment</span></p>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Blue Green deployment</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#what-is-blue-green-deployment">What is blue green deployment ?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#how-it-works">How it works ?</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#advantages">Advantages</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#example">Example</a>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../blue-green-deployment/">Blue Green deployment</a>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">DevOps</span></p>
@@ -74,8 +62,14 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">NoSQL</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mongodb/">MongoDB</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">MongoDB</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#mongodb-with-docker">MongoDB with docker</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#mongodb-with-spring">MongoDB with spring</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Documentation</span></p>
@@ -104,11 +98,11 @@
     
       
         
-          <li>Zero downtime deployment &raquo;</li>
+          <li>NoSQL &raquo;</li>
         
       
     
-    <li>Blue Green deployment</li>
+    <li>MongoDB</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -119,18 +113,32 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="blue-green-deployment">Blue Green deployment</h1>
-<h2 id="overview">Overview</h2>
-<p><img alt="Blue Green deployment" src="../img/bluegreen_deployment.jpg" /></p>
-<h2 id="what-is-blue-green-deployment">What is blue green deployment ?</h2>
-<p>Blue Green deployment is a technique that reduces downtime and risk by running two identical production environments called Blue and Green.</p>
-<h2 id="how-it-works">How it works ?</h2>
-<p>At any time, only one of the environments is live, with the live environment serving all production traffic and the other environment being idle.</p>
-<p>We use a router to redirect all incoming traffic to the live environment. When we want to deploy new version of services we deploy only to the idle environment and after extensive testing we make the router switch environment. Now the environment that was idle is the live environment and has newest version of services.</p>
-<h2 id="advantages">Advantages</h2>
-<p>This technique can eliminate downtime due to app deployment. In addition, blue green deployment reduces risk: if something unexpected happens with your new version on Green, you can immediately roll back to the last version by switching back to Blue.</p>
-<h2 id="example">Example</h2>
-<p>As you prepare a new version of your software, deployment and the final stage of testing takes place in the environment that is not live: in this example, Green. Once you have deployed and fully tested the software in Green, you switch the router so all incoming requests now go to Green instead of Blue. Green is now live, and Blue is idle.</p>
+                <h1 id="mongodb">MongoDB</h1>
+<h2 id="mongodb-with-docker">MongoDB with docker</h2>
+<ul>
+<li>-d, detach</li>
+<li>-p, publish port</li>
+<li>-v, specify volume for persistence</li>
+</ul>
+<pre><code class="language-bash">docker run -d -p 27017:27017 --name MONGO_CONTAINER_NAME -v VOLUME_NAME:/data/db mongo:TAG
+</code></pre>
+<p>We can interact with mongo directly from the container. First we need to interact with the container shell.</p>
+<pre><code class="language-bash">docker exec -it MONGO_CONTAINER_NAME bash
+</code></pre>
+<p>After we just need to type <code>mongo</code> in the interactive shell.</p>
+<h2 id="mongodb-with-spring">MongoDB with spring</h2>
+<p><a href="https://docs.spring.io/spring-data/mongodb/docs/3.1.2/reference/html/#mongo.core">Official documentation</a></p>
+<p>Example of bean to init :</p>
+<pre><code class="language-java">    @Bean
+    public MongoClient mongoClient() {
+        return MongoClients.create(&quot;mongodb://localhost:27017&quot;);
+    }
+</code></pre>
+<pre><code class="language-java">    @Bean
+    public MongoTemplate mongoTemplate(MongoClient mongoClient) {
+        return new MongoTemplate(new SimpleMongoClientDatabaseFactory(mongoClient, &quot;testdb&quot;));
+    }
+</code></pre>
               
             </div>
           </div>
@@ -138,10 +146,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../docker/" class="btn btn-neutral float-right" title="Docker">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../how-to-add-documentation/" class="btn btn-neutral float-right" title="How to add documentation">Next <span class="icon icon-circle-arrow-right"></span></a>
       
       
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../docker/" class="btn btn-neutral" title="Docker"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -167,10 +175,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../docker/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
       
-        <span style="margin-left: 15px"><a href="../docker/" style="color: #fcfcfc">Next &raquo;</a></span>
+        <span style="margin-left: 15px"><a href="../how-to-add-documentation/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
