@@ -9,7 +9,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>How to add documentation - Global Documentation</title>
+  <title>MySQL - Global Documentation</title>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
 
   <link rel="stylesheet" href="../css/theme.css" />
@@ -18,8 +18,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "How to add documentation";
-    var mkdocs_page_input_path = "how-to-add-documentation.md";
+    var mkdocs_page_name = "MySQL";
+    var mkdocs_page_input_path = "mysql.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -62,8 +62,12 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">SQL</span></p>
-                <ul>
-                    <li class="toctree-l1"><a class="reference internal" href="../mysql/">MySQL</a>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">MySQL</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#mysql-with-docker">MySQL with docker</a>
+    </li>
+    </ul>
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">NoSQL</span></p>
@@ -72,16 +76,8 @@
                     </li>
                 </ul>
                 <p class="caption"><span class="caption-text">Documentation</span></p>
-                <ul class="current">
-                    <li class="toctree-l1 current"><a class="reference internal current" href="./">How to add documentation</a>
-    <ul class="current">
-    <li class="toctree-l2"><a class="reference internal" href="#preview-documentation">Preview documentation</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#build-documentation">Build documentation</a>
-    </li>
-    <li class="toctree-l2"><a class="reference internal" href="#deploy-documentation">Deploy documentation</a>
-    </li>
-    </ul>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../how-to-add-documentation/">How to add documentation</a>
                     </li>
                 </ul>
       </div>
@@ -105,11 +101,11 @@
     
       
         
-          <li>Documentation &raquo;</li>
+          <li>SQL &raquo;</li>
         
       
     
-    <li>How to add documentation</li>
+    <li>MySQL</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -120,21 +116,19 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="how-to-add-documentation">How to add documentation</h1>
-<h2 id="preview-documentation">Preview documentation</h2>
-<p>You can preview the documentation on localhost by running the following command :</p>
-<pre><code class="language-bash">mkdocs serve
+                <h1 id="mysql">MySQL</h1>
+<h2 id="mysql-with-docker">MySQL with docker</h2>
+<ul>
+<li>-d, detach</li>
+<li>-p, publish port</li>
+<li>-v, specify volume for persistence</li>
+</ul>
+<pre><code class="language-bash">docker run --name CONTAINER_NAME -v VOLUME_NAME:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=PASSWORD -d -p 3306:3306 mysql:TAG
 </code></pre>
-<p>Local server will be available at <a href="http://localhost:8000">Localhost</a> and has hot reload.</p>
-<h2 id="build-documentation">Build documentation</h2>
-<p>After modifying the documentation you need to rebuild it by running the following command :</p>
-<pre><code class="language-bash">mkdocs build
+<p>We can interact with mysql directly from the container. First we need to interact with the container shell.</p>
+<pre><code class="language-bash">docker exec -it CONTAINER_NAME bash
 </code></pre>
-<h2 id="deploy-documentation">Deploy documentation</h2>
-<p>Once the documentation is build you need to deploy it on github page to do so we run the following command :</p>
-<pre><code class="language-bash">mkdocs gh-deploy
-</code></pre>
-<p>Documentation will be updated on github page and can be accessed at <a href="https://avella2409.github.io/Global-Documentation/">Link</a></p>
+<p>After we just need to type <code>mysql -pPASSWORD</code> in the interactive shell.</p>
               
             </div>
           </div>
@@ -142,8 +136,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
+        <a href="../mongodb/" class="btn btn-neutral float-right" title="MongoDB">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-        <a href="../mongodb/" class="btn btn-neutral" title="MongoDB"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+        <a href="../docker/" class="btn btn-neutral" title="Docker"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -169,8 +165,10 @@
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href="../mongodb/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../docker/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
+      
+        <span style="margin-left: 15px"><a href="../mongodb/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
