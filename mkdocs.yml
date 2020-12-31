@@ -9,6 +9,8 @@ nav:
     - MySQL : mysql.md
   - 'NoSQL':
     - MongoDB : mongodb.md
+  - 'Api Documentation':
+    - Swagger : swagger.md
   - 'Documentation':
       - How to add documentation: how-to-add-documentation.md
 theme: readthedocs
