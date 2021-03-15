@@ -49,7 +49,7 @@
 - Stub every infrastructure code
 
 ## Integration testing strategy
-- Test ONLY ADAPTER, one at a time (clients/adapter)
+- Test ONLY ADAPTER, one at a time (clients/infrastructure)
 - Use TestContainer
 - Use wire mock
 - Use webflux test (Mock service)
