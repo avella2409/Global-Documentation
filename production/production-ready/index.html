@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Production Ready - Global Documentation</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Production Ready";
+    var mkdocs_page_input_path = "production\\production-ready.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> Global Documentation</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Production</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Production Ready</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#goal">Goal</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#steps">Steps</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#be-prepared">Be prepared</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#make-app-deployable-from-start">Make App deployable from start</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#make-app-flexible">Make App flexible</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#make-app-safe-and-easy-to-refactor">Make App safe and easy to refactor</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#folder-structure-production-code">Folder structure production code</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#folder-structure-test">Folder structure test</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#unit-testing-strategy">Unit testing strategy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#integration-testing-strategy">Integration testing strategy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#e2e-testing-strategy">E2E testing strategy</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#distributed-logging">Distributed Logging</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#service-discovery-load-balancing">Service discovery / Load balancing</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#remote-config">Remote Config</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#api-gateway">Api Gateway</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#api-documentation">Api Documentation</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#monitoring">Monitoring</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">DevOps</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../docker/">Docker</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../blue-green-deployment/">Blue Green deployment</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../mysql/">MySQL Container</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../mongodb/">MongoDB Container</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Api Documentation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../swagger/">Swagger</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Documentation</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../how-to-add-documentation/">How to add documentation</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">Global Documentation</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Production &raquo;</li>
+        
+      
+    
+    <li>Production Ready</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="production-ready-workflow">Production Ready Workflow</h1>
+<h2 id="goal">Goal</h2>
+<p>Overview of the process to make production ready application.</p>
+<h2 id="steps">Steps</h2>
+<h3 id="be-prepared"><code>Be prepared</code></h3>
+<ul>
+<li>Plan a maximum of use case </li>
+<li>What the application need to achieve ?</li>
+<li>Identify read process</li>
+<li>Identify write process</li>
+<li>Practice example mapping (Like cucumber spec)</li>
+<li>Practice event storming. Discover implication of every action</li>
+</ul>
+<h3 id="make-app-deployable-from-start"><code>Make App deployable from start</code></h3>
+<ul>
+<li>Create git repository</li>
+<li>Add git machine user as collaborator of the new repository</li>
+<li>Dockerize app with distributed logging in mind</li>
+<li>Create Jenkins jobs. BUILD/RELEASE/PUSH to ECR</li>
+<li>Create AWS deployment process</li>
+<li>Deploy app with the full pipeline from commit to deploy</li>
+</ul>
+<h3 id="make-app-flexible"><code>Make App flexible</code></h3>
+<ul>
+<li>Clean architecture / Hexagonal architecture / Port and adapter</li>
+<li>Create a core with an application layer and a domain layer</li>
+<li>Application layer contains all use cases of the application</li>
+<li>A use case interact with the domain layer</li>
+<li>Domain layer contains all domain related logic</li>
+<li>Create an infrastructure layer. Infrastructure layer implement all interface of the domain layer.</li>
+<li>Create a client layer. Client layer call the application layer.</li>
+</ul>
+<h3 id="make-app-safe-and-easy-to-refactor"><code>Make App safe and easy to refactor</code></h3>
+<ul>
+<li>Use test driven development</li>
+<li>Wishful thinking programming. Model the code the way we wish it was already implemented. Act like all complex functionality are already implemented.</li>
+<li>Create unit test (From the use case)</li>
+<li>Create integration test</li>
+<li>Create e2e test</li>
+</ul>
+<h3 id="folder-structure-production-code"><code>Folder structure production code</code></h3>
+<ul>
+<li>clients/</li>
+<li>configuration/</li>
+<li>core/
+  . application/
+  . domain/</li>
+<li>infrastructure/</li>
+</ul>
+<h3 id="folder-structure-test"><code>Folder structure test</code></h3>
+<ul>
+<li>unit/</li>
+<li>integration/</li>
+<li>e2e/</li>
+<li>tools/</li>
+</ul>
+<h3 id="unit-testing-strategy"><code>Unit testing strategy</code></h3>
+<ul>
+<li>Create a lot of test for use cases (<a href="https://www.youtube.com/watch?v=djdMp9i04Sc">Outside-in diamond</a>)</li>
+<li>Create test for the domain when it's hard to test it from the use case</li>
+<li>Create builder with domain specific syntax to build the use case. Make it easily composable.</li>
+<li>Make test easy to refactor</li>
+<li>Only test behavior</li>
+<li>Stub every infrastructure code. Create stub that implement interface of the domain layer.</li>
+<li>Unit test communicate only with the core of the application</li>
+</ul>
+<h3 id="integration-testing-strategy"><code>Integration testing strategy</code></h3>
+<ul>
+<li>Test only adapter, one at a time (clients/infrastructure)</li>
+<li>Use TestContainer</li>
+<li>Use WireMock</li>
+<li>Use WebFluxTest. Mock use case.</li>
+<li>If we use managed service and there is a docker container doing the same use TestContainer and create a lot of test. Create only few test with the real distant managed service, test most important path.</li>
+</ul>
+<h3 id="e2e-testing-strategy"><code>E2E testing strategy</code></h3>
+<ul>
+<li>We want to check all the part of the application work together with the real configuration</li>
+<li>Use TestContainer not real distant service (Already tested in integration test)</li>
+<li>Use WireMock (Or cloud stub contract)</li>
+<li>No load balancer</li>
+<li>No remote config</li>
+</ul>
+<h3 id="distributed-logging"><code>Distributed Logging</code></h3>
+<ul>
+<li>Fluent-bit agent. Push log from file to remote server.</li>
+<li>Elasticsearch. Easy to visualize data with kibana and es.</li>
+<li>We could also use a log4j2 appender that send log to remote server.</li>
+</ul>
+<h3 id="service-discovery-load-balancing"><code>Service discovery / Load balancing</code></h3>
+<ul>
+<li>Netflix eureka</li>
+</ul>
+<h3 id="remote-config"><code>Remote Config</code></h3>
+<ul>
+<li>Spring cloud config</li>
+</ul>
+<h3 id="api-gateway"><code>Api Gateway</code></h3>
+<ul>
+<li>Spring cloud gateway</li>
+</ul>
+<h3 id="api-documentation"><code>Api Documentation</code></h3>
+<ul>
+<li>Swagger</li>
+</ul>
+<h3 id="monitoring"><code>Monitoring</code></h3>
+<ul>
+<li>Prometheus</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../../docker/" class="btn btn-neutral float-right" title="Docker">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../.." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../.." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../../docker/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
