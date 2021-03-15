@@ -1,19 +1,13 @@
 site_name: Global Documentation
 nav:
   - 'index.md'
-  - 'Workflow':
-      - Plan: 'workflow/plan.md'
-      - Development: 'workflow/development.md'
-      - Continuous Integration: 'workflow/continuous-integration.md'
-      - Deployment: 'workflow/deployment.md'
-  - 'Zero downtime deployment':
-      - Blue Green deployment: 'blue-green-deployment.md'
+  - 'Production':
+      - Production Ready: 'production/production-ready.md'
   - 'DevOps':
       - Docker: docker.md
-  - 'SQL':
-    - MySQL : mysql.md
-  - 'NoSQL':
-    - MongoDB : mongodb.md
+      - Blue Green deployment: 'blue-green-deployment.md'
+      - MySQL Container: mysql.md
+      - MongoDB Container: mongodb.md
   - 'Api Documentation':
     - Swagger : swagger.md
   - 'Documentation':
